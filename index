@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Bruno CHAZEAUD - Data Steward</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --safran-navy: #003366;
+            --safran-blue: #004B8D;
+            --safran-light: #0072CE;
+            --safran-accent: #E4002B;
+            --safran-gray: #F4F5F7;
+            --text-dark: #1a1a2e;
+            --text-medium: #3a3a52;
+            --text-light: #6b7280;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0d1f3c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .download-bar {
+            width: 100%;
+            max-width: 820px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--white);
+            color: var(--safran-navy);
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-download:hover {
+            background: var(--safran-navy);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
+        }
+
+        .btn-download .iconify { font-size: 20px; }
+
+        .cv-container {
+            width: 100%;
+            max-width: 820px;
+            background: var(--white);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .cv-header {
+            background: linear-gradient(135deg, var(--safran-navy) 0%, var(--safran-blue) 100%);
+            color: var(--white);
+            padding: 48px 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cv-header::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 30%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0,114,206,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cv-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .cv-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item .iconify { font-size: 15px; color: rgba(255,255,255,0.6); }
+        .contact-item a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+        .contact-item a:hover { color: var(--white); }
+
+        /* ===== BODY LAYOUT ===== */
+        .cv-body {
+            display: flex;
+            min-height: 900px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .cv-sidebar {
+            width: 260px;
+            min-width: 260px;
+            background: var(--safran-gray);
+            padding: 36px 28px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 32px;
+        }
+
+        .sidebar-section:last-child { margin-bottom: 0; }
+
+        .sidebar-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--safran-navy);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--safran-light);
+        }
+
+        .skill-category {
+            margin-bottom: 18px;
+        }
+
+        .skill-category:last-child { margin-bottom: 0; }
+
+        .skill-category-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 12px;
+            color: var(--text-medium);
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .skill-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--safran-light);
+        }
+
+        .lang-item {
+            margin-bottom: 12px;
+        }
+
+        .lang-item:last-child { margin-bottom: 0; }
+
+        .lang-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .lang-level {
+            font-size: 11px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .lang-bar {
+            width: 100%;
+            height: 4px;
+            background: #dde1e8;
+            border-radius: 2px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+
+        .lang-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--safran-navy), var(--safran-light));
+            border-radius: 2px;
+        }
+
+        .interest-text {
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .interest-highlight {
+            display: inline-block;
+            background: rgba(0, 51, 102, 0.08);
+            color: var(--safran-navy);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .cv-main {
+            flex: 1;
+            padding: 36px 40px;
+        }
+
+        .main-section {
+            margin-bottom: 32px;
+        }
+
+        .main-section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--safran-navy);
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--safran-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title .iconify { font-size: 18px; color: var(--safran-light); }
+
+        .summary-text {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .experience-item:last-child { margin-bottom: 0; }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .exp-role {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .exp-date {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--safran-light);
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            font-size: 12.5px;
+            color: var(--text-medium);
+            padding: 4px 0 4px 16px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .exp-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--safran-light);
+            opacity: 0.6;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .education-item:last-child { margin-bottom: 0; }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--safran-light);
+            background: var(--white);
+        }
+
+        .education-item::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 8px);
+            background: #dde1e8;
+        }
+
+        .education-item:last-child::after { display: none; }
+
+        .edu-degree {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .edu-school {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .edu-date {
+            font-size: 11px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .edu-details {
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .download-bar { display: none; }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .cv-body { min-height: auto; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body { padding: 16px 8px; }
+
+            .download-bar {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .cv-header { padding: 32px 24px 28px; }
+
+            .cv-name { font-size: 30px; }
+
+            .cv-title { font-size: 13px; }
+
+            .contact-row { gap: 12px; }
+
+            .cv-body { flex-direction: column; }
+
+            .cv-sidebar {
+                width: 100%;
+                min-width: 100%;
+                padding: 28px 24px;
+            }
+
+            .cv-main { padding: 28px 24px; }
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--safran-navy);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="download-bar">
+        <button class="btn-download" onclick="downloadWord()">
+            <span class="iconify" data-icon="lucide:file-down"></span>
+            Télécharger en Word (.doc)
+        </button>
+        <button class="btn-download" onclick="window.print()">
+            <span class="iconify" data-icon="lucide:printer"></span>
+            Imprimer / PDF
+        </button>
+    </div>
+
+    <div class="cv-container" id="cv-content">
+
+        <!-- HEADER -->
+        <div class="cv-header">
+            <div class="header-content">
+                <h1 class="cv-name">Bruno CHAZEAUD</h1>
+                <p class="cv-title">Data Steward – Gouvernance et Qualité des Données</p>
+                <div class="contact-row">
+                    <span class="contact-item">
+                        <span class="iconify" data-icon="lucide:map-pin"></span>
+                        94500 Champigny-sur-Marne
+                    </span>
+                    <span class="contact-item">
+                        <span class="iconify" data-icon="lucide:phone"></span>
+                        06 34 44 21 02
+                    </span>
+                    <span class="contact-item">
+                        <span class="iconify" data-icon="lucide:mail"></span>
+                        <a href="mailto:bruno.chazeaud.data@gmail.com">bruno.chazeaud.data@gmail.com</a>
+                    </span>
+                    <span class="contact-item">
+                        <span class="iconify" data-icon="lucide:linkedin"></span>
+                        <a href="#">LinkedIn</a>
+                    </span>
+                    <span class="contact-item">
+                        <span class="iconify" data-icon="lucide:globe"></span>
+                        <a href="#">Portfolio</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="cv-body">
+
+            <!-- SIDEBAR -->
+            <div class="cv-sidebar">
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Compétences Techniques</h2>
+
+                    <div class="skill-category">
+                        <p class="skill-category-name">Visualisation & Reporting</p>
+                        <ul class="skill-list">
+                            <li>Power BI (dashboards, suivi KPI)</li>
+                            <li>Excel avancé / VBA</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <p class="skill-category-name">Bases de Données & SQL</p>
+                        <ul class="skill-list">
+                            <li>SQL (requêtes, jointures, agrégations)</li>
+                            <li>Manipulation de données multi-sources</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <p class="skill-category-name">Programmation & Traitement</p>
+                        <ul class="skill-list">
+                            <li>Python avancé (nettoyage, automatisation)</li>
+                            <li>R (analyse statistique)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <p class="skill-category-name">Outils & Environnements</p>
+                        <ul class="skill-list">
+                            <li>Outils CRM</li>
+                            <li>Fichiers plats / bases multi-sources</li>
+                            <li>Notions ERP</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Gouvernance des Données</h2>
+                    <ul class="skill-list">
+                        <li>Qualité et fiabilisation des données</li>
+                        <li>Contrôle de cohérence inter-systèmes</li>
+                        <li>Cartographie et traçabilité des données</li>
+                        <li>Documentation et métadonnées</li>
+                        <li>Suivi de KPI qualité de données</li>
+                        <li>Plans d'amélioration continue</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Méthodes & Organisation</h2>
+                    <ul class="skill-list">
+                        <li>Méthodologie Agile / Cycle en V</li>
+                        <li>Spécification des besoins métiers</li>
+                        <li>Recette métier rigoureuse</li>
+                        <li>Management de projet IT</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Langues</h2>
+                    <div class="lang-item">
+                        <p class="lang-name">Français</p>
+                        <p class="lang-level">Langue maternelle</p>
+                        <div class="lang-bar"><div class="lang-bar-fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="lang-item">
+                        <p class="lang-name">Anglais</p>
+                        <p class="lang-level">Professionnel (C1) – 16/20 académique</p>
+                        <div class="lang-bar"><div class="lang-bar-fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Centres d'Intérêt</h2>
+                    <p class="interest-text">
+                        Données de vol (ACMS, EEC), moteurs civils (LEAP/CFM), transformation digitale des processus industriels.
+                    </p>
+                    <span class="interest-highlight">LEAP · CFM International · Aéronautique</span>
+                </div>
+
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="cv-main">
+
+                <div class="main-section">
+                    <h2 class="section-title">
+                        <span class="iconify" data-icon="lucide:user"></span>
+                        Profil
+                    </h2>
+                    <p class="summary-text">
+                        Titulaire d'un <strong>Master 2 en Data Science</strong> (Bac+5), je souhaite mettre ma double compétence data et business au service de la <strong>gouvernance et de la qualité des données</strong>. Mon expérience en fiabilisation de données multi-sources, en création de dashboards <strong>Power BI</strong> et en suivi de KPI me permet de contribuer à la cohérence et à la traçabilité de vos données Support et Service. Curieux, rigoureux et force de proposition, je suis particulièrement motivé par le secteur aéronautique et les enjeux de <strong>transformation digitale</strong>. <strong>Anglais professionnel.</strong>
+                    </p>
+                </div>
+
+                <div class="main-section">
+                    <h2 class="section-title">
+                        <span class="iconify" data-icon="lucide:briefcase"></span>
+                        Expérience Professionnelle
+                    </h2>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h3 class="exp-role">Data Scientist – Fiabilisation & Qualité des Données</h3>
+                            <span class="exp-date">Mars 2025 – Août 2025</span>
+                        </div>
+                        <p class="exp-company">FORSIDES, Conseils en Actuariat – Paris</p>
+                        <ul class="exp-list">
+                            <li><strong>Collecte, préparation et fiabilisation de données multi-sources</strong> (fichiers plats, bases de données) sur plus de 5 millions de lignes, garantissant la qualité et la cohérence des données</li>
+                            <li>Développement de solutions de traitement de données en <strong>Python</strong>, optimisant le stockage par 4 (de 200 Go à 50 Go) et les performances de calcul par 3</li>
+                            <li>Conception et déploiement de <strong>dashboards Power BI</strong> pour le suivi de KPI et la communication didactique des résultats aux équipes métiers</li>
+                            <li><strong>Spécification des besoins métiers</strong>, recette rigoureuse et collaboration continue avec les équipes IT et fonctionnelles</li>
+                            <li>Identification d'anomalies et proposition de plans d'<strong>amélioration continue</strong> de la chaîne de traitement des données</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h3 class="exp-role">Assistant en Contrôle de Gestion – Reporting & KPI</h3>
+                            <span class="exp-date">Juin 2023 – Août 2023</span>
+                        </div>
+                        <p class="exp-company">Société Générale – Antananarivo</p>
+                        <ul class="exp-list">
+                            <li>Création et administration de <strong>dashboards de suivi d'indicateurs clés (KPI)</strong> pour le pilotage de l'activité financière</li>
+                            <li><strong>Contrôle et fiabilisation des données</strong> financières, assurant la cohérence entre les différentes sources</li>
+                            <li>Communication efficace des résultats aux équipes (12 personnes), contribuant au développement de la <strong>culture data</strong> en interne</li>
+                            <li>Support quotidien aux équipes métiers, démontrant <strong>pédagogie</strong>, sens du service et esprit d'équipe</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="main-section">
+                    <h2 class="section-title">
+                        <span class="iconify" data-icon="lucide:graduation-cap"></span>
+                        Formation
+                    </h2>
+
+                    <div class="education-item">
+                        <p class="edu-degree">Master Spécialisé en Ingénierie des Risques Économiques et Financiers et Data Science</p>
+                        <p class="edu-school">Université de Bordeaux</p>
+                        <p class="edu-date">2023 – 2025</p>
+                        <p class="edu-details">
+                            Cours pertinents : Outils de Data Science, Statistiques, Économétrie du Big Data, Modélisation de données, VBA, Python, R, Anglais (validation académique : 16/20).
+                        </p>
+                    </div>
+
+                    <div class="education-item">
+                        <p class="edu-degree">Licence Économie et Gestion</p>
+                        <p class="edu-school">Université de Bordeaux</p>
+                        <p class="edu-date">2020 – 2023</p>
+                        <p class="edu-details">
+                            Cours pertinents : Économie, Gestion, Stratégies économiques et décisions, fondamentaux théoriques de la dynamique des marchés.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="main-section">
+                    <h2 class="section-title">
+                        <span class="iconify" data-icon="lucide:heart"></span>
+                        Qualités Personnelles
+                    </h2>
+                    <p class="summary-text">
+                        <strong>Esprit analytique et rigueur</strong> – Sens du détail dans le contrôle de données. <strong>Pédagogie et communication</strong> – Capacité à vulgariser les enjeux data auprès d'interlocuteurs variés (métiers, IT, direction). <strong>Curiosité et esprit d'innovation</strong> – Goût du challenge et force de proposition dans l'amélioration continue. <strong>Esprit d'équipe</strong> – Collaboration efficace et entraide.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <span class="iconify" data-icon="lucide:check-circle"></span>
+        <span id="toast-message">CV téléchargé avec succès !</span>
+    </div>
+
+    <script>
+        function showToast(message, duration = 3000) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
+        }
+
+        function downloadWord() {
+            const wordStyles = `
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1a1a2e; line-height: 1.5; }
+                    
+                    .header { background-color: #003366; color: #ffffff; padding: 30px 40px 24px; }
+                    .header h1 { font-family: 'Cambria', 'Georgia', serif; font-size: 28pt; margin-bottom: 4px; }
+                    .header .title { font-size: 11pt; text-transform: uppercase; letter-spacing: 2px; color: #aaccee; margin-bottom: 16px; }
+                    .header .contact { font-size: 9pt; color: #ccddeeff; }
+                    .header .contact span { margin-right: 20px; }
+                    
+                    .body { display: flex; }
+                    .sidebar { width: 240px; background-color: #F4F5F7; padding: 24px 20px; }
+                    .main { flex: 1; padding: 24px 30px; }
+                    
+                    .section-title { font-size: 10pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #003366; border-bottom: 2px solid #0072CE; padding-bottom: 6px; margin-bottom: 12px; margin-top: 18px; }
+                    .section-title:first-child { margin-top: 0; }
+                    
+                    .sidebar .section-title { font-size: 9pt; }
+                    
+                    .category { font-size: 10pt; font-weight: bold; color: #1a1a2e; margin-bottom: 4px; margin-top: 10px; }
+                    .skill { font-size: 9.5pt; color: #3a3a52; padding-left: 12px; position: relative; }
+                    .skill::before { content: "•"; color: #0072CE; position: absolute; left: 0; }
+                    .skill-gov { font-size: 9.5pt; color: #3a3a52; padding-left: 12px; position: relative; }
+                    .skill-gov::before { content: "•"; color: #0072CE; position: absolute; left: 0; }
+                    
+                    .lang-name { font-size: 10pt; font-weight: bold; }
+                    .lang-level { font-size: 9pt; color: #6b7280; font-style: italic; }
+                    
+                    .interest { font-size: 9.5pt; color: #3a3a52; line-height: 1.6; }
+                    .interest-highlight { font-size: 9pt; font-weight: bold; color: #003366; margin-top: 6px; display: inline-block; }
+                    
+                    .summary { font-size: 10.5pt; color: #3a3a52; line-height: 1.65; }
+                    .summary strong { color: #1a1a2e; }
+                    
+                    .exp-item { margin-bottom: 16px; margin-top: 14px; }
+                    .exp-header { display: flex; justify-content: space-between; }
+                    .exp-role { font-size: 11pt; font-weight: bold; color: #1a1a2e; }
+                    .exp-date { font-size: 9pt; color: #0072CE; font-weight: bold; }
+                    .exp-company { font-size: 10pt; color: #6b7280; margin-bottom: 6px; }
+                    .exp-list { padding-left: 14px; }
+                    .exp-list li { font-size: 10pt; color: #3a3a52; margin-bottom: 3px; }
+                    .exp-list li strong { color: #1a1a2e; }
+                    
+                    .edu-item { margin-bottom: 14px; margin-top: 12px; padding-left: 14px; }
+                    .edu-degree { font-size: 10.5pt; font-weight: bold; color: #1a1a2e; }
+                    .edu-school { font-size: 10pt; color: #6b7280; }
+                    .edu-date { font-size: 9pt; color: #6b7280; font-style: italic; }
+                    .edu-details { font-size: 9.5pt; color: #3a3a52; margin-top: 4px; }
+                    
+                    .soft { font-size: 10.5pt; color: #3a3a52; line-height: 1.65; }
+                    .soft strong { color: #1a1a2e; }
+                    
+                    table { border-collapse: collapse; width: 100%; }
+                    td { vertical-align: top; }
+                </style>
+            `;
+
+            const wordContent = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <meta charset="utf-8">
+                    <title>CV - Bruno CHAZEAUD - Data Steward</title>
+                    ${wordStyles}
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>Bruno CHAZEAUD</h1>
+                        <div class="title">Data Steward – Gouvernance et Qualité des Données</div>
+                        <div class="contact">
+                            <span>94500 Champigny-sur-Marne (Mobilité nationale)</span>
+                            <span>06 34 44 21 02</span>
+                            <span>bruno.chazeaud.data@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <table><tr>
+                    <td class="sidebar" width="240" valign="top">
+                        
+                        <div class="section-title">Compétences Techniques</div>
+                        
+                        <div class="category">Visualisation & Reporting</div>
+                        <div class="skill">Power BI (dashboards, suivi KPI)</div>
+                        <div class="skill">Excel avancé / VBA</div>
+                        
+                        <div class="category">Bases de Données & SQL</div>
+                        <div class="skill">SQL (requêtes, jointures, agrégations)</div>
+                        <div class="skill">Manipulation de données multi-sources</div>
+                        
+                        <div class="category">Programmation & Traitement</div>
+                        <div class="skill">Python avancé (nettoyage, automatisation)</div>
+                        <div class="skill">R (analyse statistique)</div>
+                        
+                        <div class="category">Outils & Environnements</div>
+                        <div class="skill">Outils CRM</div>
+                        <div class="skill">Fichiers plats / bases multi-sources</div>
+                        <div class="skill">Notions ERP</div>
+                        
+                        <div class="section-title">Gouvernance des Données</div>
+                        <div class="skill-gov">Qualité et fiabilisation des données</div>
+                        <div class="skill-gov">Contrôle de cohérence inter-systèmes</div>
+                        <div class="skill-gov">Cartographie et traçabilité des données</div>
+                        <div class="skill-gov">Documentation et métadonnées</div>
+                        <div class="skill-gov">Suivi de KPI qualité de données</div>
+                        <div class="skill-gov">Plans d'amélioration continue</div>
+                        
+                        <div class="section-title">Méthodes & Organisation</div>
+                        <div class="skill-gov">Méthodologie Agile / Cycle en V</div>
+                        <div class="skill-gov">Spécification des besoins métiers</div>
+                        <div class="skill-gov">Recette métier rigoureuse</div>
+                        <div class="skill-gov">Management de projet IT</div>
+                        
+                        <div class="section-title">Langues</div>
+                        <div class="lang-name">Français</div>
+                        <div class="lang-level">Langue maternelle</div>
+                        <br/>
+                        <div class="lang-name">Anglais</div>
+                        <div class="lang-level">Professionnel (C1) – 16/20 académique</div>
+                        
+                        <div class="section-title">Centres d'Intérêt</div>
+                        <div class="interest">Données de vol (ACMS, EEC), moteurs civils (LEAP/CFM), transformation digitale des processus industriels.</div>
+                        <div class="interest-highlight">LEAP · CFM International · Aéronautique</div>
+                        
+                    </td>
+                    <td class="main" valign="top">
+                        
+                        <div class="section-title">Profil</div>
+                        <p class="summary">
+                            Titulaire d'un <strong>Master 2 en Data Science</strong> (Bac+5), je souhaite mettre ma double compétence data et business au service de la <strong>gouvernance et de la qualité des données</strong>. Mon expérience en fiabilisation de données multi-sources, en création de dashboards <strong>Power BI</strong> et en suivi de KPI me permet de contribuer à la cohérence et à la traçabilité de vos données Support et Service. Curieux, rigoureux et force de proposition, je suis particulièrement motivé par le secteur aéronautique et les enjeux de <strong>transformation digitale</strong>. <strong>Anglais professionnel.</strong>
+                        </p>
+                        
+                        <div class="section-title">Expérience Professionnelle</div>
+                        
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-role">Data Scientist – Fiabilisation & Qualité des Données</span>
+                                <span class="exp-date">Mars 2025 – Août 2025</span>
+                            </div>
+                            <div class="exp-company">FORSIDES, Conseils en Actuariat – Paris</div>
+                            <ul class="exp-list">
+                                <li><strong>Collecte, préparation et fiabilisation de données multi-sources</strong> (fichiers plats, bases de données) sur plus de 5 millions de lignes, garantissant la qualité et la cohérence des données</li>
+                                <li>Développement de solutions de traitement de données en <strong>Python</strong>, optimisant le stockage par 4 (de 200 Go à 50 Go) et les performances de calcul par 3</li>
+                                <li>Conception et déploiement de <strong>dashboards Power BI</strong> pour le suivi de KPI et la communication didactique des résultats aux équipes métiers</li>
+                                <li><strong>Spécification des besoins métiers</strong>, recette rigoureuse et collaboration continue avec les équipes IT et fonctionnelles</li>
+                                <li>Identification d'anomalies et proposition de plans d'<strong>amélioration continue</strong> de la chaîne de traitement des données</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-role">Assistant en Contrôle de Gestion – Reporting & KPI</span>
+                                <span class="exp-date">Juin 2023 – Août 2023</span>
+                            </div>
+                            <div class="exp-company">Société Générale – Antananarivo</div>
+                            <ul class="exp-list">
+                                <li>Création et administration de <strong>dashboards de suivi d'indicateurs clés (KPI)</strong> pour le pilotage de l'activité financière</li>
+                                <li><strong>Contrôle et fiabilisation des données</strong> financières, assurant la cohérence entre les différentes sources</li>
+                                <li>Communication efficace des résultats aux équipes (12 personnes), contribuant au développement de la <strong>culture data</strong> en interne</li>
+                                <li>Support quotidien aux équipes métiers, démontrant <strong>pédagogie</strong>, sens du service et esprit d'équipe</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section-title">Formation</div>
+                        
+                        <div class="edu-item">
+                            <div class="edu-degree">Master Spécialisé en Ingénierie des Risques Économiques et Financiers et Data Science</div>
+                            <div class="edu-school">Université de Bordeaux</div>
+                            <div class="edu-date">2023 – 2025</div>
+                            <div class="edu-details">Cours pertinents : Outils de Data Science, Statistiques, Économétrie du Big Data, Modélisation de données, VBA, Python, R, Anglais (validation académique : 16/20).</div>
+                        </div>
+                        
+                        <div class="edu-item">
+                            <div class="edu-degree">Licence Économie et Gestion</div>
+                            <div class="edu-school">Université de Bordeaux</div>
+                            <div class="edu-date">2020 – 2023</div>
+                            <div class="edu-details">Cours pertinents : Économie, Gestion, Stratégies économiques et décisions, fondamentaux théoriques de la dynamique des marchés.</div>
+                        </div>
+                        
+                        <div class="section-title">Qualités Personnelles</div>
+                        <p class="soft">
+                            <strong>Esprit analytique et rigueur</strong> – Sens du détail dans le contrôle de données. <strong>Pédagogie et communication</strong> – Capacité à vulgariser les enjeux data auprès d'interlocuteurs variés (métiers, IT, direction). <strong>Curiosité et esprit d'innovation</strong> – Goût du challenge et force de proposition dans l'amélioration continue. <strong>Esprit d'équipe</strong> – Collaboration efficace et entraide.
+                        </p>
+                        
+                    </td>
+                    </tr></table>
+                </body>
+                </html>
+            `;
+
+            const blob = new Blob(['\ufeff', wordContent], {
+                type: 'application/msword'
+            });
+
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'CV_Bruno_CHAZEAUD_Data_Steward_Safran.doc';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast('CV téléchargé avec succès !');
+        }
+    </script>
+
+</body>
+</html>

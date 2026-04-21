@@ -6,17 +6,18 @@
     <title>Flyers A4 - Vasile VERES</title>
     
     <!-- Importation de polices élégantes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Script pour générer l'image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
-        /* FORCE L'AFFICHAGE DES IMAGES ET COULEURS (Corrige le bug de disparition) */
+        /* FORCE L'AFFICHAGE DES COULEURS (Impression & Image) */
         * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+            box-sizing: border-box;
         }
 
         /* CONFIGURATION PAGE A4 */
@@ -70,57 +71,62 @@
             background: linear-gradient(to bottom, #ffffff 60%, #f0fdf4 100%);
         }
 
-        /* Header avec l'image du Lotus découpée en vague */
+        /* Header avec l'image du Lotus (Technique Background Cover pour éviter l'écrasement) */
         .flyer-header {
-            height: 55mm; width: 100%;
+            height: 58mm; /* Légèrement plus haut pour une plus belle fleur */
+            width: 100%;
+            background: url('image_00.jpg') no-repeat center center;
+            background-size: cover; /* Maintient les proportions parfaites ! */
             position: relative;
+            /* Courbe en CSS sécurisée (ne bugge pas dans la conversion image) */
+            border-bottom-left-radius: 50% 12px;
+            border-bottom-right-radius: 50% 12px;
+            overflow: hidden;
         }
-        .flyer-header img {
-            width: 100%; height: 100%; object-fit: cover;
-            clip-path: ellipse(120% 100% at 50% 0%);
-        }
+
         .header-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3);
-            clip-path: ellipse(120% 100% at 50% 0%);
+            background: rgba(0,0,0,0.35); /* Voile noir léger */
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
         .header-overlay h1 {
-            font-family: 'Playfair Display', serif; font-size: 32px;
+            font-family: 'Playfair Display', serif; font-size: 34px;
             color: white; margin: 0; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .header-overlay h2 {
             font-family: 'Montserrat', sans-serif; font-size: 14px;
-            color: #1abc9c; margin: 5px 0 0 0; font-weight: 700;
+            color: #1abc9c; margin: 6px 0 0 0; font-weight: 700;
             letter-spacing: 3px; text-transform: uppercase;
-            background: rgba(255,255,255,0.9); padding: 4px 15px; border-radius: 20px;
+            background: rgba(255,255,255,0.95); padding: 4px 18px; border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         /* Contenu principal */
         .flyer-body {
-            padding: 5mm 15mm; display: flex; justify-content: space-between; align-items: flex-start;
+            padding: 6mm 15mm; display: flex; justify-content: space-between; align-items: flex-start;
         }
 
         /* Partie Gauche : Textes */
-        .left-content { width: 65%; }
+        .left-content { width: 62%; }
         .accroche {
-            font-family: 'Playfair Display', serif; font-size: 17px;
-            color: #2c3e50; font-style: italic; margin-top: 0; margin-bottom: 15px;
+            font-family: 'Playfair Display', serif; font-size: 17.5px;
+            color: #2c3e50; font-style: italic; margin-top: 0; margin-bottom: 12px;
             font-weight: 600; line-height: 1.3;
         }
         .benefits { list-style: none; padding: 0; margin: 0; }
         .benefits li {
-            font-size: 12px; color: #444; margin-bottom: 10px;
+            font-size: 12px; color: #444; margin-bottom: 9px;
             display: flex; align-items: center; font-weight: 500;
         }
         .benefits li i {
-            color: #1abc9c; font-size: 18px; margin-right: 12px;
-            background: #e8f8f5; padding: 6px; border-radius: 50%;
+            color: #1abc9c; font-size: 16px; margin-right: 12px;
+            background: #e8f8f5; padding: 7px; border-radius: 50%;
+            width: 30px; text-align: center;
         }
 
         /* Partie Droite : Image secondaire + QR Code */
         .right-content {
-            width: 30%; display: flex; flex-direction: column; align-items: center; gap: 10px;
+            width: 33%; display: flex; flex-direction: column; align-items: center; gap: 8px;
         }
         .energy-img {
             width: 35mm; height: 35mm; object-fit: cover;
@@ -130,26 +136,26 @@
         .qr-box {
             background: white; padding: 8px; border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #eee;
-            text-align: center; width: 100%; box-sizing: border-box;
+            text-align: center; width: 100%;
         }
-        .qr-box img { width: 22mm; height: 22mm; }
+        .qr-box img { width: 23mm; height: 23mm; display: block; margin: 0 auto; }
         .qr-box p {
-            margin: 5px 0 0 0; font-size: 9px; font-weight: 700;
+            margin: 6px 0 2px 0; font-size: 10px; font-weight: 700;
             color: #2c3e50; text-transform: uppercase;
         }
-        .qr-box span { font-size: 8px; color: #7f8c8d; }
+        .qr-box span { font-size: 8px; color: #7f8c8d; display: block; padding-bottom: 2px;}
 
         /* Pied de page (Coordonnées) */
         .flyer-footer {
-            position: absolute; bottom: 0; width: 100%;
+            position: absolute; bottom: 0; left: 0; width: 100%;
             background-color: #2c3e50; color: white;
-            padding: 8mm 15mm; box-sizing: border-box;
+            padding: 8mm 15mm;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .flyer-footer div { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 300; }
+        .flyer-footer div { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; }
         .flyer-footer i { color: #1abc9c; font-size: 14px; }
 
-        /* MASQUER LA BARRE D'OUTILS À L'IMPRESSION (au cas où tu fais Ctrl+P) */
+        /* MASQUER LA BARRE D'OUTILS À L'IMPRESSION */
         @media print {
             .toolbar { display: none !important; }
             body { background: white; padding: 0; }
@@ -159,7 +165,7 @@
 </head>
 <body>
 
-    <!-- BARRE D'OUTILS (Uniquement Image) -->
+    <!-- BARRE D'OUTILS -->
     <div class="toolbar">
         <button class="btn-action" onclick="downloadImage()">
             <i class="fas fa-download"></i> Télécharger en Image Haute Qualité (PNG)
@@ -172,7 +178,6 @@
         <!-- ==================== FLYER 1 (HAUT) ==================== -->
         <div class="flyer">
             <div class="flyer-header">
-                <img src="image_00.jpg" alt="Lotus">
                 <div class="header-overlay">
                     <h1>Vasile VERES</h1>
                     <h2>Bioénergéticien</h2>
@@ -186,7 +191,7 @@
                         <li><i class="fas fa-spa"></i> Bilan complet et rééquilibrage énergétique</li>
                         <li><i class="fas fa-water"></i> Harmonisation des centres vitaux (méridiens)</li>
                         <li><i class="fas fa-leaf"></i> Gestion de la fatigue chronique et du stress</li>
-                        <li><i class="fas fa-hands-holding-circle"></i> Méthode douce, précise et ancestrale</li>
+                        <li><i class="fas fa-hand-holding-heart"></i> Méthode douce, précise et ancestrale</li>
                     </ul>
                 </div>
                 
@@ -213,7 +218,6 @@
         <!-- ==================== FLYER 2 (BAS) ==================== -->
         <div class="flyer">
             <div class="flyer-header">
-                <img src="image_00.jpg" alt="Lotus">
                 <div class="header-overlay">
                     <h1>Vasile VERES</h1>
                     <h2>Bioénergéticien</h2>
@@ -227,7 +231,7 @@
                         <li><i class="fas fa-spa"></i> Bilan complet et rééquilibrage énergétique</li>
                         <li><i class="fas fa-water"></i> Harmonisation des centres vitaux (méridiens)</li>
                         <li><i class="fas fa-leaf"></i> Gestion de la fatigue chronique et du stress</li>
-                        <li><i class="fas fa-hands-holding-circle"></i> Méthode douce, précise et ancestrale</li>
+                        <li><i class="fas fa-hand-holding-heart"></i> Méthode douce, précise et ancestrale</li>
                     </ul>
                 </div>
                 
@@ -250,17 +254,15 @@
 
     </div>
 
-    <!-- SCRIPT CORRIGÉ POUR LE TÉLÉCHARGEMENT EN IMAGE -->
+    <!-- SCRIPT POUR LE TÉLÉCHARGEMENT EN IMAGE -->
     <script>
         function downloadImage() {
-            // Avertissement de sécurité si ouvert en local depuis l'ordinateur
             if (window.location.protocol === 'file:') {
-                alert("Information : Puisque vous ouvrez ce fichier directement depuis votre ordinateur, votre navigateur (Chrome/Safari) bloque par sécurité la création de l'image.\n\nCe bouton marchera à 100% sans erreur dès que vous placerez ce fichier sur votre GitHub !\n\nEn attendant, vous pouvez appuyer sur 'Ctrl + P' sur votre clavier : j'ai réparé le code pour que le PDF contienne bien toutes vos images !");
+                alert("Information : Puisque vous ouvrez ce fichier directement depuis votre ordinateur, votre navigateur (Chrome/Safari) bloque la capture de la belle image du lotus par sécurité.\n\nCe bouton téléchargera l'image finale parfaite (sans déformation) dès que vous placerez ce fichier sur votre site !");
             }
 
             const flyerElement = document.getElementById('flyer-a4');
             
-            // L'option useCORS: true a été ajoutée pour mieux gérer les images
             html2canvas(flyerElement, { scale: 2, useCORS: true }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'Flyers_A4_Vasile_Veres.png';
